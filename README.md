@@ -1,2 +1,2 @@
-#Programmers_Lv1
-화이팅!
+Programmers_Lv1
+
