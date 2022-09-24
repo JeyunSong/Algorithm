@@ -1,29 +1,25 @@
 
-import java.util.stream.Stream;
-
+import java.util.Arrays;
 public class Chap007 {
     public static void main(String[] args) {
 
         class Solution {
             public int[] solution(long n) {
-// long a 를 String 개별 값으로 변환
-                int[] answer = Stream.of(String.valueOf(n).split(""))
-// int 값으로 맵 지정 후 배열
-                        .mapToInt(Integer::parseInt)
-                        .toArray();
+                int [] answer = {};
+// long n 값을 String로 바꿔주기
+                String s = String.valueOf(n);
+// String 값에 reverse 메서트를 사용하기 위해 StringBuilder 객체 생성
+                StringBuilder str = new StringBuilder(s);
+// reverse
+                str = str.reverse();
+// str 값을 배열로 변경
+// (StringBuilder 클래스에서는 .split을 사용할 수 없기 때문에 .toString으로 변경)
+                String [] array = str.toString().split("");
 
-// int[] 배열 역순으로 변환 (두 물컵에 있는 액체를 서로의 컵으로 옮기려면 새로운 컵 하나가 필요하다.)
-                int temp;
-
-                for (int i = 0; i < answer.length / 2; i++) {
-                    temp = answer[i];
-                    answer[i] = answer[(answer.length - 1) - i];
-                    answer[(answer.length - 1) - i] = temp;
-                }
+// String 배열을 int 배열로 컨버트
+                answer = Arrays.stream(array).mapToInt(Integer::parseInt).toArray();
                 return answer;
             }
-
-
         }
     }
 }
