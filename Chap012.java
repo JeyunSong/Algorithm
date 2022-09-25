@@ -4,18 +4,15 @@ public class Chap012 {
     public static void main(String[] args) {
         class Solution {
             public boolean solution(int x) {
-                int has = 0;
+                int num = 0;
+// int x를 String 배열로 바꾸기
                 String s = String.valueOf(x);
-                String [] array = s.split("");
-                int [] num = Arrays.stream(array).mapToInt(Integer::parseInt).toArray();
-
-                for (int i : num) has += i;
-                if ( x % has == 0) return true;
-                else return false;
+                String[] array = s.split("");
+// num 값에 array 배열 int 값으로 변환 후 모두 더해주기
+                for (String k : array) num += Integer.parseInt(k);
+// x가 num으로 나눠지면 true 나누어지지 않으면 false 리턴
+                return x % num == 0;
             }
         }
-    } // return x%has == 0
-    // for문 안에서 int로 변환
-    // String i로 해서 parsrInt
+    }
 }
-// 기존에 배웠던거 응용
