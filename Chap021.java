@@ -1,4 +1,4 @@
-class Solution {
+class Chap021 {
     public int solution(int[] nums) {
         int answer = 0;
         int sum = 0;

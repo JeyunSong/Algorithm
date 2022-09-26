@@ -1,26 +1,16 @@
-import java.util.ArrayList;
-
+import java.util.Arrays;
 class Chap027 {
-    public int solution(int[] nums) {
+    public int solution(int[] d, int budget) {
         int answer = 0;
         int sum = 0;
 
-        ArrayList<Integer> array = new ArrayList<Integer>();
-// 3중 for문으로 3개의 수를 더하기
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                for (int k = j + 1; k < nums.length; k++) {
-                    sum = nums[i] + nums[j] + nums[k];
-                    if (!array.contains(sum)) array.add(sum);
-// sum이 true면 answer++
-                }
+        Arrays.sort(d);
+        for (int j : d) {
+            budget -= j;
+            if (budget < 0) break;
+            answer++;
             }
-        }
-        for (int y = 2; y < sum; y++) {
-            if (sum % y != 0) answer++;
-        }
         return answer;
     }
 }
-// 틀린 코드인데 계속 츄라이 해보기
 
