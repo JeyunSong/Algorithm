@@ -15,22 +15,23 @@ class Chap032 {
             people -= count;
             count = 0;
 
-            if (people == 0 && count == 0) {
-                array.add(0.0);
-                array3.add(0.0);
-                break;
-            }
-
             for (int stage : stages) {
-                if (stage == i) {
+                if (stage == (double) N + 1) {
+                    continue;
+                } else if (stage == i) {
                     count++;
                 }
-
             }
 
-            array.add(count / people);
-            array3.add(count / people);
+            if (count > 0 && people > 0) {
+                array.add(count / people);
+                array3.add(count / people);
+            } else {
+                array.add(0.0);
+                array3.add(0.0);
+            }
         }
+
 
         System.out.println(array3);
 
@@ -50,8 +51,11 @@ class Chap032 {
             }
         }
 
+
         int[] answer = new int[array2.size()];
-        for (int m=0; m<answer.length; m++)
+        for (
+                int m = 0;
+                m < answer.length; m++)
             answer[m] = array2.get(m);
 
         return answer;
